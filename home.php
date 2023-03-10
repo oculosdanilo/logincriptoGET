@@ -8,7 +8,12 @@
   </head>
   <body>
     <div class="main">
-      
+      <h1>Olá, <?=$_COOKIE['username']?>!</h1>
+      <?php if ($_COOKIE['admin'] == 1): ?>
+        <p>Você é um administrador</p>
+      <?php else: ?>
+        <p>Você não é um administrador</p>
+      <?php endif; ?>
     </div>
   </body>
 </html>
