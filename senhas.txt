@@ -1,0 +1,1 @@
+[{"login":"danilo@gmail.com","senha":"fazol","admin": 1},{"login":"luccabarros","senha":"latecachorro","admin":1},{"login":"canilaVic","senha":"123","admin":1},{"login":"bruniszsz","senha":"mwah123","admin":0},{"login":"felipe@gmail.com","senha":"gls2424","admin":0}]
