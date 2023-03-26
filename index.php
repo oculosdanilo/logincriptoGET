@@ -14,10 +14,10 @@
         $existe = false;
         $i = 0;
         while ($i < count($logins)) {
-          $usernameDB = $logins[$i]->login;
+          $usernameDB = openssl_decrypt($logins[$i]->login, "aes256", "1234", 0, "1234567890123456");
           if ($usernameDB == $_POST['username']) {
             $usernameDigitado = $_POST['username'];
-            $senhaDB = $logins[$i]->senha;
+            $senhaDB = openssl_decrypt($logins[$i]->senha, "aes256", "1234", 0, "1234567890123456");;
             if ($senhaDB == $_POST['senha']) {
               setcookie("username", $_POST['username'], time()+20*24*60*60);
               setcookie("admin", $logins[$i]->admin, time()+20*24*60*60);
