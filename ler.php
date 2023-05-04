@@ -1,7 +1,7 @@
 <?php
 
   function ler() {
-    $arquivo = fopen ('senhas.txt', 'r');
+    $arquivo = fopen('./senhas.txt', 'r');
     $result = array();
     while(!feof($arquivo)) {
       $result = explode("|", fgets($arquivo));
