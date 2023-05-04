@@ -2,6 +2,9 @@
 
   require "../../ler.php";
 
-  print_r(ler());
+  print(ler("../../senhas.txt"));
+
+  
 
 ?>
+<?=ler("../../senhas.txt")?>
