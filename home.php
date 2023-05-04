@@ -14,6 +14,7 @@
       <?php else: ?>
         <p>Você não é um administrador</p>
       <?php endif; ?>
+      <p>Token de acesso: <?=$_COOKIE["token"]?></p>
     </div>
   </body>
 </html>

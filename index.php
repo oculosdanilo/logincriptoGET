@@ -1,40 +1,17 @@
 <?php
-      if (isset($_POST['username'])) {
-       $arquivo = fopen ('senhas.txt', 'r');
-      $result = array();
-      while(!feof($arquivo)) {
-        $result = explode("|", fgets($arquivo));
-      }
-      fclose($arquivo);
-        $logins = json_decode($result[0]);
-        existe($logins);
-      }
+  require 'ler.php';
+  require 'autenticar.php';
+  
+  if (isset($_POST['username'])) {
+    $logins = ler();
+    existe($logins);
+  }
 
-      function existe($logins) {
-        $existe = false;
-        $i = 0;
-        while ($i < count($logins)) {
-          $usernameDB = openssl_decrypt($logins[$i]->login, "aes256", "1234", 0, "1234567890123456");
-          if ($usernameDB == $_POST['username']) {
-            $usernameDigitado = $_POST['username'];
-            $senhaDB = openssl_decrypt($logins[$i]->senha, "aes256", "1234", 0, "1234567890123456");;
-            if ($senhaDB == $_POST['senha']) {
-              setcookie("username", $_POST['username'], time()+20*24*60*60);
-              setcookie("admin", $logins[$i]->admin, time()+20*24*60*60);
-              echo "<script>window.location.href = 'home.php';</script>";
-            } else {
-              echo "<script>window.location.href = '?reg=erro2';</script>";
-            }
-            $existe = true;
-            break;
-          }
-          $i++;
-        }
-        if (!$existe) {
-          echo "<script>window.location.href = '?reg=erro1';</script>";
-        }
-      }
-    ?>
+  function existe($logins) {
+    $autenticar = autenticar($logins);
+    echo $autenticar;
+  }
+?>
 <html>
   <head>
     <title>Senhas</title>
