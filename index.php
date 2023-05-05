@@ -3,7 +3,7 @@
   require 'autenticar.php';
   
   if (isset($_POST['username'])) {
-    $logins = ler("./senhas.txt");
+    $logins = ler("./senhas.txt")[0];
     existe($logins);
   }
 

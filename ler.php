@@ -7,8 +7,7 @@
       $result = explode("|", fgets($arquivo));
     }
     fclose($arquivo);
-    $logins = json_decode($result[0]);
-    return $logins;
+    return $result;
   }
 
 ?>
