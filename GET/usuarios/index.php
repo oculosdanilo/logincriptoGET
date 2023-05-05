@@ -10,7 +10,6 @@ if (isset($_GET["id"])) {
     if ($_GET["id"] == $registro[$i]->id) {
       print_r(json_encode($registro[$i]));
       $achouUser = true;
-      return;
     }
   }
   $achouUser ? print("") : print("Usuário não existe");
